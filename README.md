@@ -3,7 +3,7 @@
 ## Installation
 
 ```bash
-git clone https://github.com/baoanh1310/pose_demo.git
+git clone https://github.com/virtualtrain3r/nodecode.git pose_demo
 cd pose_demo
 npm install
 ```
