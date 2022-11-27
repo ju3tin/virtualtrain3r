@@ -39,7 +39,15 @@
 		  }
 		  
 		}
-		
+		.scores-container {
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+  text-align: center;
+  font-size: larger;
+  font: bold;
+}
 		.github-corner{
 			display: none !important;
 		}
@@ -90,9 +98,6 @@
 								<option value="MoveNetMultiPoseLightning">2D only (FAST) multipose / MoveNet</option>
 								<option value="PoseNetMobileNetV1">2D only (SLOW) singlepose (faster) / PoseNet-MobileNetV1 </option>
 								<option value="PoseNetResNet50">2D only (SLOW) singlepose (slower) / PoseNet-ResNet50</option>
-								<option value="BlazePoseLite">2D + 3D singlepose (faster) / BlazePose</option>
-								<option value="BlazePoseHeavy">2D + 3D singlepose (slower) / BlazePose</option>
-								<option value="BlazePoseFull">2D + 3D singlepose (optimal) / BlazePose</option>
 							</select>
 				     	</div>						
 					</div>
@@ -167,7 +172,7 @@
 	  <div id="info_counter"></div>
 	</div>
 
-	
+	<div class="scores-container">0000</div>
 	<div id="view_3d"></div>
 	
 	<!-- Load Tensor Flow -->
@@ -385,6 +390,9 @@
 			videoElement.classList.toggle('selfie', options.selfieMode);
 			pose.setOptions(options);
 		});
+
+		setInterval(function () {console.log(tracker.poses)}, 1000);
+		setInterval(function () {console.log("dude one 1")}, 1000);
 	</script>
 	
 </body>

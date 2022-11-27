@@ -1303,3 +1303,4 @@
     });
     U("POSE_LANDMARKS_NEUTRAL", { NOSE: 0 });
 }.call(this));
+setInterval(function () {console.log(LEFT_KNEE)}, 1000);
