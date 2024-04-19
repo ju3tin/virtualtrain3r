@@ -14,3 +14,7 @@ npm start
 ```
 
 Go to: http://localhost:3000/
+
+ "https://github.com/hugozanini/Activities-Pose-Estimation#readme"
+
+
