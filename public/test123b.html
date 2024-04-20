@@ -74,20 +74,6 @@
     function openNav() {
       document.getElementById("myNav").style.width = "100%";
     }
-    const sendButton = document.getElementById('sendButton');
-    sendButton.addEventListener('click', () => {
-    // Publish a message using PubNub
-    pubnub.publish({
-        channel: 'your_channel_name',
-        message: 'Your message content here'
-    }, (status, response) => {
-        if (status.error) {
-            console.error(status.errorData);
-        } else {
-            console.log('Message published successfully');
-        }
-    });
-});
   
     /* Close when someone clicks on the "x" symbol inside the overlay */
     function closeNav() {
