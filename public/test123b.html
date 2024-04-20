@@ -16,15 +16,13 @@
     <script src="./javascript/pose.js"></script>
     <title>Curl Counter</title>
     <style>
-        {
-  font-family: 'Lato', sans-serif;
-}
+  
 
 .overlay {
   height: 100%;
-  width: 0;
+  width: 100%;
   position: fixed;
-  z-index: 1;
+  z-index: 10000;
   top: 0;
   left: 0;
   background-color: rgb(0,0,0);
@@ -71,13 +69,54 @@
 }
     </style>
 </head>
+<script>/* Open when someone clicks on the span element */
+    function openNav() {
+      document.getElementById("myNav").style.width = "100%";
+    }
+    const sendButton = document.getElementById('sendButton');
+    sendButton.addEventListener('click', () => {
+    // Publish a message using PubNub
+    pubnub.publish({
+        channel: 'your_channel_name',
+        message: 'Your message content here'
+    }, (status, response) => {
+        if (status.error) {
+            console.error(status.errorData);
+        } else {
+            console.log('Message published successfully');
+        }
+    });
+});
+  
+    /* Close when someone clicks on the "x" symbol inside the overlay */
+    function closeNav() {
+      document.getElementById("myNav").style.width = "0%";
+    }</script>
 <body>
+
+<div id="myNav" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="overlay-content">
+<!--      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Clients</a>
+      <a href="#">Contact</a>-->
+     <h1> Waiting for Player</h1>
+     <a href="javascript:void(0)" id="sendButton">sdfsdfsdf</a>
+     <button id="sendButton" onclick="fuckyou()">sdfsfdsfsdfsdfsdfsdsdfsfsdfsdf</button>
+  
+    </div>
+  </div>
+  
 
 <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
 <!-- My Phone Number & Dial Areas -->
 <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
 <div class="container">
     <div class="row">
+
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+
       <button onclick="myFunction()">Click me</button>
 
 <p id="demo"></p>
@@ -92,6 +131,8 @@
     </div>
 
 <script>
+
+
 
      ProgressCountdown(10, "pageBeginCountdownText");
 
@@ -121,8 +162,7 @@ function myFunction() {
         <!-- MY PHONE NUMBER -->
         <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
         <div class="col-sm-6">
-            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
-
+        
             <div id="my-number-section" class="text-center">
                 <div id="my-number">LOADING</div>
                 <div id="my-number-title" class="hidden-sm hidden-xs">
@@ -226,6 +266,8 @@ function myFunction() {
         </div>
     </div>
 </div>
+
+
 
 <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
 <!-- WebRTC Peer Connections -->
@@ -636,6 +678,30 @@ phone.debug(function(details){
     console.log(details);
 });
 
-})();</script>
+})();
+
+
+
+function fuckyou() {
+    //alert("This is an alert dialog box");
+    pubnub.publish({
+        channel: 'your_channel_name',
+        message: 'Your message content here'
+    }, (status, response) => {
+        if (status.error) {
+            console.error(status.errorData);
+            console.log('something when wrong');
+        } else {
+            console.log('Message published successfully');
+        }
+    });
+
+    
+}
+  
+
+</script>
+
+
 </body>
 </html>
