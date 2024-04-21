@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="en" class="h-100" data-bs-theme="auto">
+  <head><script src="/assets/js/color-modes.js"></script>
+   <meta charset="utf-8">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="./css/control_utils.css">
+    <script src="./javascript/camera_utils.js"></script>
+    <script src="./javascript/control_utils.js"></script>
+    <script src="./javascript/drawing_utils.js"></script>
+    <script src="./javascript/pose.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.122.0">
+    <title>Cover Template · Bootstrap v5.3</title>
+    <link href="css/styles1.css" rel="stylesheet" type="text/css">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/cover/">
+
+    
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+<link href="/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="cover.css" rel="stylesheet">
+  </head>
+  <body class="d-flex h-100 text-center text-bg-dark">
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+      </symbol>
+    </svg>
+
+   
+    
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+    <div>
+      <h3 class="float-md-start mb-0">Cover</h3>
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+        <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="#">Home</a>
+        <a class="nav-link fw-bold py-1 px-0" href="#">Features</a>
+        <a class="nav-link fw-bold py-1 px-0" href="#">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+
+        <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+        <!-- MY PHONE NUMBER -->
+        <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+     <!--
+      
+      first clooumn
+
+
+      justin123
+      
+      
+      <div class="col-sm-6">
+            <div id="my-number-section" class="text-center">
+                <div id="my-number">LOADING</div>
+                <div id="my-number-title" class="hidden-sm hidden-xs">
+                    this is <strong>your phone number</strong>
+                </div>
+                <div id="my-number-permalink">
+                    <span class="glyphicon glyphicon-link"></span>
+                    call link:
+                    <a id="my-number-link" href="..." target="_blank">https://...</a>
+                </div>
+            </div>
+            <div id="pubnub-chat-section" class="text-center">
+                <input id="pubnub-chat-input" type="text" placeholder="chat here">
+                <div id="pubnub-chat-output"><div></div></div>
+            </div>
+        </div>
+
+      -->
+
+        <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+        <!-- Video -->
+        <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+        <div class="col-sm-6">
+
+          <div class="container">
+            <video class="input_video"></video>
+            <canvas class="output_canvas" width="400px" height="300px"></canvas>
+            <!-- <canvas class="counter_canvas" width="200px" height="720px"></canvas> -->
+            <div class="loading">
+                <div class="spinner"></div>
+                <div class="message">
+                    Loading
+                </div>
+            </div>
+            <a class="abs logo" href="https://github.com/baoanh1310/pose_demo" target="_blank">
+                <div style="display: flex;align-items: center;bottom: 0;right: 10px;">
+                    <img class="logo" src="logo_white.png" alt="" style="
+              height: 50px;">
+                    <span class="title">Group 02 - AI Project</span>
+                </div>
+            </a>
+            <div class="shoutout">
+                <div>
+                    <a href="https://github.com/baoanh1310/pose_demo">
+                        Click here for more info
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="control-panel">
+        </div>
+        </div>
+        <div class="col-sm-6">
+            <!-- DISPLAY -->
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <div id="video-border">
+                        <div class="pubnub-relative">
+                            <div id="video-self"></div>
+                        </div>
+                        <div id="video-display">
+                            <span class="glyphicon glyphicon-flash"></span>
+                        </div>
+                    </div>
+                    <div id="pubnub-relative">
+                        <div id="video-thumbnail"></div>
+                        <div id="pubnub-logo">
+                            <div id="pubnub-logo-img"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DIAL CONTROLS -->
+            <div class="row">
+                <div class="col-sm-6 col-xs-7">
+                    <div class="form-group"><div class="input-group">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-th"></span>
+                    </div>
+                    <input id="number" class="form-control" type="number" placeholder="Type Recipient's #">
+                    </div></div>
+                </div>
+                <div class="col-sm-6 col-xs-5 dial-buttons">
+                    <button id="dial" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-earphone"></span>
+                    </button>
+                    <button id="snap" class="btn btn-success">
+                        <span class="glyphicon glyphicon-camera"></span>
+                    </button>
+                    <button id="hangup" class="btn btn-danger">
+                        <span class="glyphicon glyphicon-ban-circle"></span>
+                    </button>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+  <footer class="mt-auto text-white-50">
+    <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
+  </footer>
+</div>
+<script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.pubnub.com/pubnub.js"></script>
+
+<!-- WebRTC SDK -->
+<script src="js/webrtc.js"></script>
+<script src="js/sound.js"></script>
+<script>(function(){
+
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// Generate Random Number if Needed
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+var urlargs         = urlparams();
+var my_number       = PUBNUB.$('my-number');
+var my_link         = PUBNUB.$('my-number-link');
+var number          = urlargs.number || Math.floor(Math.random()*999+1);
+
+my_number.number    = number;
+my_number.innerHTML = ''+my_number.number;
+my_link.href        = location.href.split('?')[0] + '?call=' + number;
+my_link.innerHTML   = my_link.href;
+
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// Update Location if Not Set
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+if (!('number' in urlargs)) {
+    urlargs.number = my_number.number;
+    location.href = urlstring(urlargs);
+    return;
+}
+
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// Get URL Params
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+function urlparams() {
+    var params = {};
+    if (location.href.indexOf('?') < 0) return params;
+
+    PUBNUB.each(
+        location.href.split('?')[1].split('&'),
+        function(data) { var d = data.split('='); params[d[0]] = d[1]; }
+    );
+
+    return params;
+}
+
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// Construct URL Param String
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+function urlstring(params) {
+    return location.href.split('?')[0] + '?' + PUBNUB.map(
+        params, function( key, val) { return key + '=' + val }
+    ).join('&');
+}
+
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// Calling & Answering Service
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+var video_out = PUBNUB.$('video-display');
+var img_out   = PUBNUB.$('video-thumbnail');
+var img_self  = PUBNUB.$('video-self');
+
+var phone     = window.phone = PHONE({
+    number        : my_number.number // listen on this line
+,   media         : { video: { width:640, height:480 }, audio: true } // <--- Set Camera Resolution
+,   publish_key   : 'pub-c-561a7378-fa06-4c50-a331-5c0056d0163c'
+,   subscribe_key : 'sub-c-17b7db8a-3915-11e4-9868-02ee2ddab7fe'
+,   secure        : true, ssl: true
+});
+
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// Video Session Connected
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+function connected(session) {
+    video_out.innerHTML = '';
+    video_out.appendChild(session.video);
+
+    PUBNUB.$('number').value = ''+session.number;
+    sounds.play('sound/hi');
+    console.log("Hi!");
+}
+
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// Video Session Ended
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+function ended(session) {
+    clearInterval(thumbnail.ival);
+    thumbnail.ival = 0;
+    set_icon('facetime-video');
+    img_out.innerHTML = '';
+    sounds.play('sound/goodbye');
+    console.log("Bye!");
+}
+
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// Video Session Ended
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+function set_icon(icon) {
+    video_out.innerHTML = '<span class="glyphicon glyphicon-' +
+        icon + '"></span>';
+}
+
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// Start Phone Call
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+function dial(number) {
+    // Hangup an old call
+    phone.hangup();
+
+    // Dial Number
+    var session = phone.dial(number);
+
+    // No Dupelicate Dialing Allowed
+    if (!session) return;
+
+    // Show Connecting Status
+    set_icon('send');
+}
+
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// Ready to Send or Receive Calls
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+phone.ready(function(){
+    // Ready To Call
+    set_icon('facetime-video');
+
+    // Auto Call
+    if ('call' in urlargs) {
+        var number = urlargs['call'];
+        PUBNUB.$('number').value = number;
+        dial(number);
+    }
+
+    // Make a Phone Call
+    PUBNUB.bind( 'mousedown,touchstart', PUBNUB.$('dial'), function(){
+        var number = PUBNUB.$('number').value;
+        if (!number) return;
+        dial(number);
+    } );
+
+    // Hanup Call
+    PUBNUB.bind( 'mousedown,touchstart', PUBNUB.$('hangup'), function() {
+        phone.hangup();
+        set_icon('facetime-video');
+    } );
+
+    // Take Picture
+    PUBNUB.bind( 'mousedown,touchstart', PUBNUB.$('snap'), function() {
+        var photo = phone.snap();
+
+        if (!(photo && photo.image))
+            return console.error(
+                '%c Connect your video with a partner first.',
+                'font-size:30px;background:#f00;color:#fff'
+            );
+
+        img_self.innerHTML = ' ';
+        img_self.appendChild(photo.image);
+        setTimeout( function() { img_self.innerHTML = ' ' }, 750 );
+    } );
+});
+
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// Received Call Thumbnail
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+function thumbnail(session) {
+    img_out.innerHTML = '';
+    img_out.appendChild(session.image);
+    img_out.appendChild(phone.snap().image);
+}
+
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// Receiver for Calls
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+phone.receive(function(session){
+    session.message(message);
+    session.thumbnail(thumbnail);
+    session.connected(connected);
+    session.ended(ended);
+
+    if (!thumbnail.ival)
+        thumbnail.ival = setInterval( () => thumbnail(session), 400 );
+});
+
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// Chat
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+var chat_in  = PUBNUB.$('pubnub-chat-input');
+var chat_out = PUBNUB.$('pubnub-chat-output');
+
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// Send Chat MSG and update UI for Sending Messages
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+PUBNUB.bind( 'keydown', chat_in, function(e) {
+    if ((e.keyCode || e.charCode) !== 13)     return true;
+    if (!chat_in.value.replace( /\s+/g, '' )) return true;
+
+    phone.send({ text : chat_in.value });
+    add_chat( my_number.number + " (Me)", chat_in.value );
+    chat_in.value = '';
+} )
+
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// Update Local GUI
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+function add_chat( number, text ) {
+    if (!text.replace( /\s+/g, '' )) return true;
+
+    var newchat       = document.createElement('div');
+    newchat.innerHTML = PUBNUB.supplant(
+        '<strong>{number}: </strong> {message}', {
+        message : safetxt(text),
+        number  : safetxt(number)
+    } );
+    chat_out.insertBefore( newchat, chat_out.firstChild );
+}
+
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// WebRTC Message Callback
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+function message( session, message ) {
+    add_chat( session.number, message.text );
+}
+
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// XSS Prevent
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+function safetxt(text) {
+    return (''+text).replace( /[<>]/g, '' );
+}
+
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// Problem Occured During Init
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+phone.unable(function(details){
+    console.log("Alert! - Reload Page.");
+    console.log(details);
+    set_icon('remove');
+});
+
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// Debug Output
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+phone.debug(function(details){
+    console.log(details);
+});
+
+})();</script>
+
+<script>
+  // Our input frames will come from here.
+  const videoElement = document.getElementsByClassName('input_video')[0];
+  const canvasElement = document.getElementsByClassName('output_canvas')[0];
+  const controlsElement = document.getElementsByClassName('control-panel')[0];
+  const canvasCtx = canvasElement.getContext('2d');
+  
+  // const counterElement = document.getElementsByClassName('counter_canvas')[0];
+  // const canvasCounter = counterElement.getContext('2d');
+  
+  // We'll add this to our control panel later, but we'll save it here so we can
+  // call tick() each time the graph runs.
+  const fpsControl = new FPS();
+  
+  // Optimization: Turn off animated spinner after its hiding animation is done.
+  const spinner = document.querySelector('.loading');
+  spinner.ontransitionend = () => {
+      spinner.style.display = 'none';
+  };
+  
+  // Curl counter stuff
+  let angle = 0.0;
+  let stage = "DOWN";
+  let counter = 0;
+  
+  function zColor(data) {
+      return 'white';
+  }
+  
+  function calculate_angle(shoulder, elbow, wrist) {
+    let radians = Math.atan2(wrist[1]-elbow[1], wrist[0]-elbow[0]) - 
+      Math.atan2(shoulder[1]-elbow[1], shoulder[0]-elbow[0]);
+    let angle = Math.abs(radians * 180.0 / Math.PI);
+  
+    if (angle > 180.0) {
+      angle = 360 - angle;
+    }
+  
+    return angle;
+  }
+  
+  function onResults(results) {
+      // Hide the spinner.
+      document.body.classList.add('loaded');
+  
+      // Update the frame rate.
+      fpsControl.tick();
+  
+      // Draw the overlays.
+      canvasCtx.save();
+      canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
+      canvasCtx.drawImage(
+          results.image, 0, 0, canvasElement.width, canvasElement.height);
+      drawConnectors(
+          canvasCtx, results.poseLandmarks, POSE_CONNECTIONS, {
+              visibilityMin: 0.65,
+              color: 'white'
+          });
+      drawLandmarks(
+          canvasCtx,
+          Object.values(POSE_LANDMARKS_LEFT)
+          .map(index => results.poseLandmarks[index]), { visibilityMin: 0.65, color: zColor, fillColor: 'rgb(255,138,0)' });
+      drawLandmarks(
+          canvasCtx,
+          Object.values(POSE_LANDMARKS_RIGHT)
+          .map(index => results.poseLandmarks[index]), { visibilityMin: 0.65, color: zColor, fillColor: 'rgb(0,217,231)' });
+      drawLandmarks(
+          canvasCtx,
+          Object.values(POSE_LANDMARKS_NEUTRAL)
+          .map(index => results.poseLandmarks[index]), { visibilityMin: 0.65, color: zColor, fillColor: 'white' });
+      // canvasCtx.restore();
+  
+      const landmarksRight = Object.values(POSE_LANDMARKS_LEFT)
+        .map(index => results.poseLandmarks[index]);
+  
+      const shoulder = [landmarksRight[5].x, landmarksRight[5].y];
+      const elbow = [landmarksRight[6].x, landmarksRight[6].y];
+      const wrist = [landmarksRight[7].x, landmarksRight[7].y];
+  
+      angle = calculate_angle(shoulder, elbow, wrist);
+      
+      // console.log(angle);
+      if (angle > 140) {
+        stage = "DOWN";
+      } 
+      if (angle < 30 && stage == "DOWN") {
+        stage = "UP";
+        counter += 1;
+        // console.log(stage + ", ", counter);
+      }
+      console.log("Angle: " + angle + ", Stage: " + stage + ", ", counter);
+  
+      canvasCtx.font = "30px Arial";
+      canvasCtx.fillStyle = "red";
+      canvasCtx.fillText(stage + ": " + counter.toString(), 1100, 50);
+      canvasCtx.restore();
+  }
+  
+  const pose = new Pose({
+      locateFile: (file) => {
+          return `https://cdn.jsdelivr.net/npm/@mediapipe/pose@0.3.1621277220/${file}`;
+      }
+  });
+  pose.onResults(onResults);
+  
+  /**
+   * Instantiate a camera. We'll feed each frame we receive into the solution.
+   */
+  const camera = new Camera(videoElement, {
+      onFrame: async () => {
+          await pose.send({ image: videoElement });
+      },
+      width: 400,
+      height: 300
+  });
+  camera.start();
+  
+  // Present a control panel through which the user can manipulate the solution
+  // options.
+  new ControlPanel(controlsElement, {
+          selfieMode: true,
+          modelComplexity: 0,
+          smoothLandmarks: true,
+          minDetectionConfidence: 0.2,
+          minTrackingConfidence: 0.2
+      })
+      .add([
+          new StaticText({ title: 'Curl Counter Mode' }),
+          fpsControl,
+          new Toggle({ title: 'Right Hand Practice', field: 'selfieMode' }),
+          // new Slider({
+          //     title: 'Model Complexity',
+          //     field: 'modelComplexity',
+          //     discrete: ['Lite', 'Full', 'Heavy'],
+          // }),
+          // new Toggle({ title: 'Smooth Landmarks', field: 'smoothLandmarks' }),
+          // new Slider({
+          //     title: 'Min Detection Confidence',
+          //     field: 'minDetectionConfidence',
+          //     range: [0, 1],
+          //     step: 0.01
+          // }),
+          // new Slider({
+          //     title: 'Min Tracking Confidence',
+          //     field: 'minTrackingConfidence',
+          //     range: [0, 1],
+          //     step: 0.01
+          // }),
+      ])
+      .on(options => {
+          videoElement.classList.toggle('selfie', options.selfieMode);
+          pose.setOptions(options);
+      });
+  </script>
+  
+
+    </body>
+</html>
