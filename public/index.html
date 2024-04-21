@@ -1329,25 +1329,11 @@ hr {
     </style>
 
     <script>
-      function timer3(){
+        const counter2 = 0;
 
-var timeLeft = 30;
-var elem = document.getElementById('Timer');
 
-var timerId = setInterval(countdown, 1000);
-
-function countdown() {
-  if (timeLeft == 0) {
-    clearTimeout(timerId);
-    doSomething();
-  } else {
-    elem.innerHTML = timeLeft + ' seconds remaining';
-    timeLeft--;
-  }
-}
-
-}
-
+  var MyApp = {}; // Globally scoped object
+     
 function openNav() {
       document.getElementById("myNav").style.width = "100%";
     }
@@ -1365,13 +1351,13 @@ function openNav() {
 
 <div id="myNav" class="overlay">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <div class="overlay-content">
+  <div id="onctent2" class="overlay-content">
 <!--      <a href="#">About</a>
     <a href="#">Services</a>
     <a href="#">Clients</a>
     <a href="#">Contact</a>-->
    <h1> Waiting for Player</h1>
-   <button id="sendButton" onclick="timer3();">sdfsfdsfsdfsdfsdfsdsdfsfsdfsdf</button>
+   <button id="sendButton" onclick="timer3();closeNav();">sdfsfdsfsdfsdfsdfsdsdfsfsdfsdf</button>
 
 
   </div>
@@ -1398,7 +1384,7 @@ function openNav() {
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
   <header class="mb-auto">
     <div>
-      <h3 class="float-md-start mb-0"><span style="font-size:30px;cursor:pointer" onclick="openNav()">Cover</span></h3>
+      <h3 class="float-md-start mb-0"><span style="font-size:30px;cursor:pointer" onclick="openNav(); timer3()">Cover</span></h3>
 
 
       <nav class="nav nav-masthead justify-content-center float-md-end">
@@ -1442,7 +1428,7 @@ function openNav() {
         <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
         <!-- Video -->
         <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
-        <div class="col-sm-6">
+        <div class="col-sm-6" style="min-width: 700px;">
 
           <div class="container">
             <video class="input_video" style="display: none;"></video>
@@ -1527,7 +1513,10 @@ function openNav() {
 <!-- WebRTC SDK -->
 <script src="js/webrtc.js"></script>
 <script src="js/sound.js"></script>
-<script>(function(){
+<script>
+var value1 = 0;
+
+(function(){
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // Generate Random Number if Needed
@@ -1810,7 +1799,7 @@ phone.debug(function(details){
     return angle;
   }
   
-  function onResults(results) {
+  function onResults(results, value1) {
       // Hide the spinner.
       document.body.classList.add('loaded');
   
@@ -1857,13 +1846,18 @@ phone.debug(function(details){
       if (angle < 30 && stage == "DOWN") {
         stage = "UP";
         counter += 1;
+      
         // console.log(stage + ", ", counter);
       }
       console.log("Angle: " + angle + ", Stage: " + stage + ", ", counter);
       //document.getElementById('angle1').innerHTML = angle;
       document.getElementById('stage1').innerHTML = stage;
       document.getElementById('counter1').innerHTML = counter;
-  
+    //  value1 = 30;
+      document.getElementById("onctent1").innerHTML = "My Score is" + counter;
+
+      //counter2 = value1;
+    
       canvasCtx.font = "30px Arial";
       canvasCtx.fillStyle = "red";
       canvasCtx.fillText(stage + ": " + counter.toString(), 1100, 50);
@@ -1925,6 +1919,35 @@ phone.debug(function(details){
           videoElement.classList.toggle('selfie', options.selfieMode);
           pose.setOptions(options);
       });
+      function timer3(){
+
+var timeLeft = 30;
+var elem = document.getElementById('Timer');
+
+
+document.getElementById('onctent2').id = 'onctent1';
+
+var timerId = setInterval(countdown, 1000);
+
+function countdown(counter, results, value1) {
+  if (timeLeft == 0) {
+    clearTimeout(timerId);
+ //   document.getElementById("onctent1").innerHTML = "";
+//value1 = counter;
+  
+    document.getElementById('onctent1').id = 'two';
+    openNav();
+   // alert(counter);
+    doSomething();
+    
+  } else {
+    elem.innerHTML = timeLeft + ' seconds remaining';
+    timeLeft--;
+  }
+}
+
+}
+
   </script>
   
 
