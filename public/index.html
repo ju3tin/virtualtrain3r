@@ -1361,6 +1361,7 @@ function openNav() {
 
 
   </div>
+  <div id="onctent5"></div>
 </div>
 
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
@@ -1515,6 +1516,8 @@ function openNav() {
 <script src="js/sound.js"></script>
 <script>
 var value1 = 0;
+
+var value2 = 12;
 
 (function(value1){
 
@@ -1799,7 +1802,7 @@ phone.debug(function(details){
     return angle;
   }
   
-  function onResults(results, value1) {
+  function onResults(results, value1, value2) {
       // Hide the spinner.
       document.body.classList.add('loaded');
   
@@ -1853,9 +1856,14 @@ phone.debug(function(details){
       //document.getElementById('angle1').innerHTML = angle;
       document.getElementById('stage1').innerHTML = stage;
       document.getElementById('counter1').innerHTML = counter;
-    //  value1 = 30;
-      document.getElementById("onctent1").innerHTML = "My Score is" + counter;
-
+     value2 = 12;
+      document.getElementById("onctent1").innerHTML = "My Score is" + counter + "<br> The Oppents Score Is" + value2;
+      if (counter > value2){
+        document.getElementById("onctent5").innerHTML = "you win"
+      }else{
+        document.getElementById("onctent5").innerHTML = "you lose"
+      }
+      
       //counter2 = value1;
     
       canvasCtx.font = "30px Arial";
