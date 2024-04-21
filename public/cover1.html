@@ -26,6 +26,56 @@
     <style>
 
 
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
+}
 audio,canvas,progress,video {
     display: inline-block;
     vertical-align: baseline
@@ -1278,11 +1328,55 @@ hr {
       }
     </style>
 
-    
+    <script>
+      function timer3(){
+
+var timeLeft = 30;
+var elem = document.getElementById('Timer');
+
+var timerId = setInterval(countdown, 1000);
+
+function countdown() {
+  if (timeLeft == 0) {
+    clearTimeout(timerId);
+    doSomething();
+  } else {
+    elem.innerHTML = timeLeft + ' seconds remaining';
+    timeLeft--;
+  }
+}
+
+}
+
+function openNav() {
+      document.getElementById("myNav").style.width = "100%";
+    }
+  
+    /* Close when someone clicks on the "x" symbol inside the overlay */
+    function closeNav() {
+      document.getElementById("myNav").style.width = "0%";
+    }</script>
+
+    </script>
     <!-- Custom styles for this template -->
     <link href="cover.css" rel="stylesheet">
   </head>
   <body class="d-flex h-100 text-center text-bg-dark">
+
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+<!--      <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a>-->
+   <h1> Waiting for Player</h1>
+   <button id="sendButton" onclick="timer3();">sdfsfdsfsdfsdfsdfsdsdfsfsdfsdf</button>
+
+
+  </div>
+</div>
+
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
       <symbol id="check2" viewBox="0 0 16 16">
         <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
@@ -1304,7 +1398,9 @@ hr {
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
   <header class="mb-auto">
     <div>
-      <h3 class="float-md-start mb-0">Cover</h3>
+      <h3 class="float-md-start mb-0"><span style="font-size:30px;cursor:pointer" onclick="openNav()">Cover</span></h3>
+
+
       <nav class="nav nav-masthead justify-content-center float-md-end">
         <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="#">Home</a>
         <a class="nav-link fw-bold py-1 px-0" href="#">Features</a>
@@ -1355,25 +1451,19 @@ hr {
             <div class="loading">
                 <div class="spinner"></div>
                 <div class="message">
-                    Loading
+                  
                 </div>
             </div>
             <a class="abs logo" href="https://github.com/baoanh1310/pose_demo" target="_blank">
                 <div style="display: flex;align-items: center;bottom: 0;right: 10px;">
                     <img class="logo" src="logo_white.png" alt="" style="
               height: 50px;">
-                    <span class="title">Group 02 - AI Project</span>
+                   
                 </div>
             </a>
-            <div class="shoutout">
-                <div>
-                    <a href="https://github.com/baoanh1310/pose_demo">
-                        Click here for more info
-                    </a>
-                </div>
-            </div>
+           
         </div>
-        <div class="control-panel">
+        <div class="control-panel" style="display: none;">
         </div>
         </div>
         <div class="col-sm-6">
@@ -1424,7 +1514,8 @@ hr {
 </div>
 
   <footer class="mt-auto text-white-50">
-    <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
+    <div id="Timer">0:00</div>
+   <!-- <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>-->
   </footer>
 </div>
 <script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
